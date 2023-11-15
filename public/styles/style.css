@@ -16,7 +16,7 @@
         margin: 0px;
     }
     
-    
+    /* ------------------------------------Header ------------------------------------------*/
     .navbar{
         background-color:var(--primary-color);
     }
@@ -37,7 +37,7 @@
     
     .pages ul li{
         list-style: none;
-        margin-top: 7px;
+        margin-top: 10px;
     }
     
     
@@ -60,8 +60,38 @@
     .navbar ul li a:focus{
         outline: none;
     }
+
+
+    .navbar #searchInput{
+        border: none;
+        border-radius: 8px;
+        margin: 7px 0px 0 100px;
+        height: 2.5rem;
+        width: 20rem;
+        font-family: inherit;
+        /* font-weight: bold; */
+        padding: 0px 1rem;
+
+    }
+
+    .navbar #searchInput:focus{
+        outline: none;
+    }
+
+    .navbar #searchButton{
+        font-size: 20px;
+        border: 0;
+        padding: 7px;
+        outline: none;
+        background-color:transparent;
+        border-radius: 12px;
+        transition: ease-in 0.2s;
+    }
+    .navbar #searchButton:hover{    
+        color: #fff;
+    }
     
-    .navbar .login,.post-a-job{
+    .navbar .login,.postAJob{
         border: 0;
         margin: 0px 20px;
         padding: 7px;
@@ -78,14 +108,17 @@
     
     
     
-    .navbar .login:hover,.post-a-job:hover{
+    /* .navbar .login:hover,.postAJob:hover{
         background-color: var(--secondary-color);
-    }
+    } */
     
-    .nabvar .login:hover a,.post-a-job:hover a{
+    .nabvar .login:hover a,.postAJob:hover a{
         color: #fff;
     }
     
-    .navbar .login:focus,.post-a-job:focus{
+    .navbar .login:focus,.postAJob:focus{
         outline: none;
     }
+
+
+     /* ------------------------------------Header ends here ------------------------------------------*/
