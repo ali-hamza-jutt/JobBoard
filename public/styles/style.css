@@ -1,0 +1,91 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+    }
+    :root
+    {
+        --primary-color:#00FFAB;
+        --secondary-color:#14C38E;
+        --tertiary-color:#B8F1B0;
+        --fourth-color:#F1EFEF;
+        --package-background-color:#7D7C7C;
+        --form-background-color:#E3FCBF;
+    }
+    
+    
+    body{
+        margin: 0px;
+    }
+    
+    
+    .navbar{
+        background-color:var(--primary-color);
+    }
+    
+    
+    .navbar .title a
+    {
+        font-family: 'Croissant One', cursive;
+        font-size: 30px;
+        margin: 0 25px;
+    }
+    
+    
+    .pages{
+        display: flex;
+    }
+    
+    
+    .pages ul li{
+        list-style: none;
+        margin-top: 7px;
+    }
+    
+    
+    .navbar a{
+        text-decoration: none;
+        color:#000;
+        letter-spacing: 1px;
+        font-size: 20px;
+        transition: ease-in 0.2s;
+        border:0;
+        padding: 7px;
+        border-radius: 12px ;
+    }
+    
+    .navbar ul li a:hover{
+        /* background-color:var(--secondary-color); */
+        color: #fff;
+    }
+    
+    .navbar ul li a:focus{
+        outline: none;
+    }
+    
+    .navbar .login,.post-a-job{
+        border: 0;
+        margin: 0px 20px;
+        padding: 7px;
+        outline: none;
+        background-color:transparent;
+        border-radius: 12px;
+        transition: ease-in 0.2s;
+    
+    
+    }.navbar .login:hover a,
+    .post-a-job:hover a {
+      color: #fff;
+    }
+    
+    
+    
+    .navbar .login:hover,.post-a-job:hover{
+        background-color: var(--secondary-color);
+    }
+    
+    .nabvar .login:hover a,.post-a-job:hover a{
+        color: #fff;
+    }
+    
+    .navbar .login:focus,.post-a-job:focus{
+        outline: none;
+    }
