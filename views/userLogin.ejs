@@ -1,0 +1,116 @@
+
+<%- include('partials/header.ejs') %>
+<div>
+    <div class="loginPage">
+        <div id="loginContainer" class="formContainer active">
+
+
+            <form id="loginForm" class="form" action="/login" method="post">
+                
+                <h1 id="loginHeading" class="heading">Login</h1>
+    
+                <div class="formSection loginFormDiv">
+                    <label for="emailField" id="emailLabel" class="label">Email</label>
+                    <input required ="email" name="emailField" id="emailField" class="field">
+                    <i class="fas fa-envelope loginIcon"></i>
+                </div>
+    
+                <div class="formSection loginFormDiv" id="loginPasswordSection">
+                    <label for="passwordField" class="label">Password</label>
+                    <input type="password" name="passwordField" id="passwordField" class="field passwordInput">
+                    <i class="fa-solid fa-eye loginIcon showPassword"></i>
+                </div>
+    
+                <!-- <div class="remember-me">
+                    <input checked type="checkbox" id="remember-me" name="remember-me">
+                    <label for="remember-me">Remember Me</label>
+                </div> -->
+    
+                <div id="loginButton" class="button">
+                    <button class="btn" type="submit">Login</button>
+                </div>
+    
+                <span id="loginSpan" class="span">New to Career Compass? <a class="switchLink" id="registerShift" href="#">Register</a></span>
+    
+            </form>
+        </div>
+    
+    
+    
+    
+    
+    
+        <div id="registerContainer" class="formContainer">
+    
+            
+            <form  id="registerForm" class="form" action="/register" method="post">
+    
+                <h1 id="registerHeading" class="heading">Register</h1>
+    
+                <div class="formSection" id="nameSection">
+                    <label for="firstNameField" id="firstNameLabel" class="label">First Name</label>
+                    <input required type="text" name="firstNameField" id="firstNameField" class="field">
+                    <label for="lastNameField" id="lastNameLabel" class="label">Last Name</label>
+                    <input required type="text" name="lastNameField" id="lastNameField"
+                    class="field">
+                </div>
+    
+    
+                <div class="formSection" id="registerEmailSection">
+                    <label for="registerEmailField" id="registerEmailLabel" class="label" >Email</label>
+                    <input required type="email" name="registerEmailField" id="registerEmailField" class="field">
+                    <i class="fas fa-envelope loginIcon"></i>
+                </div>
+    
+                <div class="formSection" id="registerPasswordSection">
+                    <label for="registerPasswordField" id="registerPasswordLabel" class="label" >Password</label>
+                    <input required type="password" name="registerPasswordField" id="registerPasswordField" class="field passwordInput">
+                    <i class="fa-solid fa-eye loginIcon showPassword"></i>
+                </div>
+    
+    
+                <div class="formSection" id="rememberPasswordSection">
+                    <label for="rememberPasswordField" id="rememberPasswordLabel" class="label">Re-Type Password</label>
+                    <input required type="password" name="rememberPasswordField" id="rememberPasswordField" class="field passwordInput">
+                    <i class="fa-solid fa-eye loginIcon showPassword"></i>
+                </div>
+    
+    
+                <div class="formSection" id="DOBSection">
+                    <label for="dateOfBirth" class="DOBLabel">Date of Birth:</label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required placeholder="">
+                </div> 
+    
+    
+                <div id="genderContainer">
+                    <label class="genderLabel">Gender:</label>
+                    <div class="gender">
+                        <input type="radio" class="radioButton" id="male" name="gender" value="male" required>
+                        <label for="male" class="genderLabel" >Male</label>
+                    </div>
+    
+    
+    
+                    <div class="gender">
+                        <input type="radio" class="radioButton" id="female" name="gender" value="female" required>
+                        <label for="female" class="genderLabel" >Female</label>
+                    </div>
+    
+                    <div class="gender">
+                        <input type="radio" class="radioButton" id="other" name="gender" value="other" required>
+                        <label for="other" class="genderLabel" >Other</label>
+                    </div>
+                </div>
+                <div class="statusMessage"></div>
+                <div id="registerButton" class="button">
+                    <button class="btn" type="submit">Register</button>
+                </div>
+    
+                <span id="registerSpan" class="span">Already have an Account? <a id="loginShift" class="switchLink" href="#">Login</a></span>
+    
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs') %>
+

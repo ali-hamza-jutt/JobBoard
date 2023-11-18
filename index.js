@@ -14,7 +14,7 @@ app.use(express.static(__dirname+'/public'))
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/',(req,res)=>{
-    res.render(__dirname+'/views/header.ejs')
+    res.render(__dirname+'/views/userLogin.ejs')
 })
 
 app.listen(port,()=>{

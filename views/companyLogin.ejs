@@ -1,0 +1,96 @@
+
+<%- include('partials/header.ejs') %>
+    <div class="loginPage">
+        <div id="loginContainer" class="formContainer active">
+
+
+            <form id="loginForm" class="form" action="/companylogin" method="post">
+                
+                <h1 id="loginHeading" class="heading">Login</h1>
+    
+                <div class="formSection loginFormDiv">
+                    <label for="emailField" id="emailLabel" class="label">Email</label>
+                    <input required ="email" name="emailField" id="emailField" class="field">
+                    <i class="fas fa-envelope loginIcon"></i>
+                </div>
+    
+                <div class="formSection loginFormDiv" id="loginPasswordSection">
+                    <label for="passwordField" class="label">Password</label>
+                    <input class="passwordInput field" type="password" name="passwordField" id="passwordField">
+                    <i class="fa-solid fa-eye loginIcon showPassword"></i>
+                </div>
+    
+                <!-- <div class="remember-me">
+                    <input checked type="checkbox" id="remember-me" name="remember-me">
+                    <label for="remember-me">Remember Me</label>
+                </div> -->
+    
+                <div id="loginButton" class="button">
+                    <button class="btn" type="submit">Login</button>
+                </div>
+    
+                <span id="loginSpan" class="span">New to Career Compass? <a class="switchLink" id="registerShift" href="#">Register</a></span>
+    
+            </form>
+        </div>
+    
+    
+    
+    
+    
+    
+        <div id="registerContainer" class="formContainer">
+
+            <!-- Updated Register Form -->
+            <form id="registerForm" class="form" action="/companyRegister" method="post">
+
+                <h1 id="registerHeading" class="heading">Register Company</h1>
+
+                <div class="formSection" id="nameSection">
+                    <label for="companyNameField" id="companyNameLabel" class="label">Company's Name</label>
+                    <input required type="text" name="companyNameField" id="companyNameField" class="field">
+                </div>
+
+                <div class="formSection" id="registerEmailSection">
+                    <label for="companyRegisterEmailField" id="companyRegisterEmailLabel" class="label">Company's Email</label>
+                    <input required type="email" name="companyRegisterEmailField" id="companyRegisterEmailField" class="field">
+                    <i class="fas fa-envelope loginIcon"></i>
+                </div>
+
+                <div class="formSection" id="registerPasswordSection">
+                    <label for="registerPasswordField" id="registerPasswordLabel" class="label">Password</label>
+                    <input required type="password" class="passwordInput field" name="registerPasswordField" id="registerPasswordField">
+                    <i class="fa-solid fa-eye loginIcon showPassword"></i>
+                </div>
+
+                <div class="formSection">
+                    <label for="companyCityField" class="label">City</label>
+                    <input required type="text" name="companyCityField" id="companyCityField" class="field">
+
+                    <label for="companyPostalCodeField" class="label" id="companyPostalCodeLabel">Postal Code</label>
+                    <input required type="text" name="companyPostalCodeField" id="companyPostalCodeField" class="field">
+                </div>
+
+                <div class="formSection">
+                    <label for="companyStreetField" class="label">Street</label>
+                    <input required type="text" name="companyStreetField" id="companyStreetField" class="field">
+                </div>
+
+
+                <div class="formSection">
+                    <label for="companyContactNumberField" class="label">Contact Number</label>
+                    <input required type="tel" name="companyContactNumberField" id="companyContactNumberField" class="field">
+                </div>
+
+                <div class="statusMessage"></div>
+                <div id="registerButton" class="button">
+                    <button class="btn" type="submit">Register</button>
+                </div>
+
+                <span id="registerSpan" class="span">Already have an Account? <a id="loginShift" class="switchLink" href="#">Login</a></span>
+
+            </form>
+        </div>
+    </div>
+<%- include('partials/footer.ejs') %>
+
