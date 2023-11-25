@@ -410,3 +410,47 @@ input[type="radio"] {
 
 
 /* ----------------------------- CompanyLoginPage ends here ---------------------- */
+
+.jobContainer{
+    text-decoration: none;
+    background-color: var(--fourth-color);
+    color: #000;
+    margin: 1rem 2rem;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.featured-jobs
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-heading
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.job{
+    display: flex;
+    flex-direction: column;
+    /* margin: 1rem 2rem;
+    border-radius: 12px;
+    padding: 1.5rem; */
+}
+
+.job .location
+{
+    letter-spacing: 2px;
+}
+
+.job .package
+{
+    background-color: var(--package-background-color);
+    padding: 5px 5px 5px 20px;
+    border-radius: 8px;
+    width: 17.5vw;
+}
