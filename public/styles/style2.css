@@ -1,0 +1,254 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+    }
+    :root
+    {
+        --primary-color:#00FFAB;
+        --secondary-color:#14C38E;
+        --tertiary-color:#B8F1B0;
+        --fourth-color:#F1EFEF;
+        --package-background-color:#7D7C7C;
+        --form-background-color:#E3FCBF;
+    }
+    
+    
+    body{
+        margin: 0px;
+    }
+    
+    /* ------------------------------------Header ------------------------------------------*/
+    .navbar{
+        background-color:transparent;
+        /* position: absolute; */
+    }
+    
+    
+    .navbar .title a
+    {
+        font-family: 'Croissant One', cursive;
+        font-size: 30px;
+        margin: 0 25px;
+    }
+    
+    
+    .pages{
+        display: flex;
+    }
+    
+    
+    .pages ul li{
+        list-style: none;
+        margin-top: 10px;
+    }
+    
+    
+    .navbar a{
+        text-decoration: none;
+        color:#000;
+        letter-spacing: 1px;
+        font-size: 20px;
+        transition: ease-in 0.2s;
+        border:0;
+        padding: 7px;
+        border-radius: 12px ;
+    }
+    
+    .navbar ul li a:hover{
+        /* background-color:var(--secondary-color); */
+        color: #fff;
+    }
+    
+    .navbar ul li a:focus{
+        outline: none;
+    }
+
+
+    .navbar #searchInput{
+        border: none;
+        border-radius: 8px;
+        margin: 7px 0px 0 100px;
+        height: 2.5rem;
+        width: 20rem;
+        font-family: inherit;
+        /* font-weight: bold; */
+        padding: 0px 1rem;
+
+    }
+
+    .navbar #searchInput:focus{
+        outline: none;
+    }
+
+    .navbar #searchButton{
+        font-size: 20px;
+        border: 0;
+        padding: 7px;
+        outline: none;
+        background-color:transparent;
+        border-radius: 12px;
+        transition: ease-in 0.2s;
+    }
+    .navbar #searchButton:hover{    
+        color: #fff;
+    }
+    
+    .navbar .login,.logout,.postAJob{
+        border: 0;
+        margin: 0px 20px;
+        padding: 7px;
+        outline: none;
+        background-color:transparent;
+        border-radius: 12px;
+        transition: ease-in 0.2s;
+    
+    
+    }.navbar .login:hover a,
+    .post-a-job:hover a {
+      color: #fff;
+    }
+    
+    
+    
+    /* .navbar .login:hover,.postAJob:hover{
+        background-color: var(--secondary-color);
+    } */
+    
+    .nabvar .login:hover a,.postAJob:hover a{
+        color: #fff;
+    }
+    
+    .navbar .login:focus,.postAJob:focus{
+        outline: none;
+    }
+
+
+     /* ------------------------------------Header ends here--------------------------------*/
+     /* ------------------------------------Homepage Hero starts here--------------------------------*/
+
+
+     /* ------------------------------------Homepage Hero ends here--------------------------------*/
+    .landing-page {
+    background: radial-gradient(circle farthest-side at bottom left, #00ffab 34%, #b8f1b0 50%, #14c38e 30%);
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+
+.page-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1; 
+}
+
+.page-title h1{
+    margin: 1rem 3rem;
+}
+
+.page-title p{
+    margin: 0 3rem;
+}
+
+.page-title button{
+    margin: 1rem 3rem;
+    width: 250px;
+    padding:10px ;
+    background-color: var(--secondary-color);
+    border: 0 ;
+    border-radius: 12px;
+}
+
+.page-title button:hover
+{
+    box-shadow: 5px 5px 15px 5px #fff;
+}
+.page-title button a{
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+/* ----------------------------- HomePage Job Div Starts here ---------------------- */
+
+.jobContainer{
+    text-decoration: none;
+    background-color: var(--fourth-color);
+    color: #000;
+    margin: 1rem 2rem;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.featured-jobs
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-heading
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.job{
+    display: flex;
+    flex-direction: column;
+    /* margin: 1rem 2rem;
+    border-radius: 12px;
+    padding: 1.5rem; */
+}
+
+.job .location,.jobPageContainer .location
+{
+    letter-spacing: 2px;
+}
+
+.job .package,.jobPageContainer .package
+{
+    background-color: var(--package-background-color);
+    padding: 5px 5px 5px 20px;
+    border-radius: 8px;
+    width: 17.5vw;
+}
+
+/* ----------------------------- HomePage Job Div Ends here -------------------------------- */
+
+     /* ------------------------------------Footer starts from here--------------------------*/
+     
+     
+     footer{
+        background-color:var(--primary-color);
+        width: 100vw;
+        height: 35vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    footer div{
+        margin: 0.5rem 0;
+    }
+    footer a{
+        text-decoration: none;
+        color:#fff;
+        font-size: 20px;
+        margin: 0 0.3rem;
+        padding: 0.5rem;
+        border-radius: 12px;
+        transition: ease-in 0.2s;
+    }
+    
+    footer div a i{
+        color: blue;
+    }
+    
+    footer a:hover{
+        background-color: var(--primary-color);
+        color: #000;
+    }
+    /* ----------------------------------Footer ends  here--------------------------------*/

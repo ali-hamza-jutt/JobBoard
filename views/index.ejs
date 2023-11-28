@@ -1,44 +1,33 @@
 <!-- index.ejs -->
 
-<%- include('partials/header.ejs') %>
+<%- include('partials/homepageHeader.ejs') %>
 
 <div class="featured-jobs">
   <h2 class="featured-heading">Featured Jobs</h2>
 
   <% jobs.forEach(job => { %>
-    <% companies.forEach(company => { %>
-    <a href="#" class="jobContainer">
-      <div class="job">
-        <h4 class="job-title">
-          <%= job.JobType %>
-        </h4>
-        <h5 class="company-name">
-          <%= company.CompanyName %>        
-        </h5>
-        <p class="location">
-          <i class="fas fa-map-marker-alt"><%= company.CompanyCity %></i>
-        </p>
-        <div class="package-and-details">
-          <p class="package">
-            <%= job.OfferedSalary %> a month
+      <a href="/job?id=<%= job.JobID %>" class="jobContainer">
+        <div class="job">
+          <h4 class="job-title">
+            <%= job.JobTitle %>
+          </h4>
+          <h5 class="company-name">
+            <%= job.CompanyName %>        
+          </h5>
+          <p class="location">
+            <i class="fas fa-map-marker-alt"><%= job.CompanyCity %></i>
           </p>
-          <p class="jobtype">
-            <%= job.JobType %>
-          </p>
+          <div class="package-and-details">
+            <p class="package">
+              PKR <%= job.OfferedSalary %> a month
+            </p>
+            <h4 class="jobtype">
+              <%= job.JobType %>
+            </h4>
+          </div>
         </div>
-        <div class="job-details">
-          <ul>
-            <li class="details">
-              <%= job.JobDescription %>
-            </li>
-            <!-- Add more details as needed -->
-          </ul>     
-        </div>
-      </div>
-    </a>
-  <% }); %>
-  <% }); %>
-
+      </a>
+    <% }); %>
 </div>
 
 <%- include('partials/footer.ejs') %>

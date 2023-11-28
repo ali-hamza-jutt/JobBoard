@@ -1,14 +1,68 @@
+<!-- job.ejs -->
+
 <%- include('partials/header.ejs') %>
+
 <div class="jobPageContainer">
-    <div class="jobPageTitle">
-        Full Stack Web  Development
+    <h1 class="jobPageTitle">
+        <%= job.JobTitle %>
+    </h1>
+    <h2 class="jobPageCompany">
+        <%= job.CompanyName %>
+    </h2>
+    <p class="location">
+        <i class="fas fa-map-marker-alt"><%= job.CompanyCity %></i>
+    </p>
+    <div class="package-and-details">
+        <p class="package">
+            PKR <%= job.OfferedSalary %> a month
+        </p>
+        <h4 class="jobtype">
+            <%= job.JobType %>
+        </h4>
     </div>
-    <div class="jobPageCompany">
-        Systems Pvt Ltd
+    <div class="job-details">
+        <h5>Description</h5>
+        <ul class="descriptionList">
+            <% if (job.JobDescription) {
+                const jobDescriptionLines = job.JobDescription.split('. ');
+                jobDescriptionLines.forEach(line => { %>
+                    <li class="descriptionListItem"><%= line %></li>
+                <% });
+            } %>
+        </ul>
+        <h5>Responsibilities</h5>
+        <ul class="descriptionList">
+            <% if (job.JobResponsibilities) {
+                const jobResponsibilitiesLines = job.JobResponsibilities.split('. ');
+                jobResponsibilitiesLines.forEach(line => { %>
+                    <li class="descriptionListItem"><%= line %></li>
+                <% });
+            } %>
+        </ul>
+        <h5>Requirements</h5>
+        <ul class="descriptionList">
+            <% if (job.JobRequirements) {
+                const jobRequirementsLines = job.JobRequirements.split('. ');
+                jobRequirementsLines.forEach(line => { %>
+                    <li class="descriptionListItem"><%= line %></li>
+                <% });
+            } %>
+        </ul>
+        <h5>Benefits</h5>
+        <ul class="descriptionList">
+            <% if (job.JobBenefits) {
+                const jobBenefitsLines = job.JobBenefits.split('. ');
+                jobBenefitsLines.forEach(line => { %>
+                    <li class="descriptionListItem"><%= line %></li>
+                <% });
+            } %>
+        </ul>
     </div>
+    
+    <div class="jobPageContainer">
+        <a href="/edu" class="applyButton">Apply</a>
+    </div>
+    
 </div>
-
-
-
 
 <%- include('partials/footer.ejs') %>

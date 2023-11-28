@@ -21,6 +21,9 @@
         background-color:var(--secondary-color);
         /* position: absolute; */
     }
+    .Homenavbar{
+        background-color:transparent;
+    }
     
     
     .navbar .title a
@@ -92,7 +95,7 @@
         color: #fff;
     }
     
-    .navbar .login,.postAJob{
+    .navbar .login,.postAJob,.logout{
         border: 0;
         margin: 0px 20px;
         padding: 7px;
@@ -123,7 +126,52 @@
 
 
      /* ------------------------------------Header ends here--------------------------------*/
+     /* ------------------------------------Homepage Hero starts here--------------------------------*/
 
+
+     /* ------------------------------------Homepage Hero ends here--------------------------------*/
+    /* .landing-page {
+    background: radial-gradient(circle farthest-side at bottom left, #00ffab 34%, #b8f1b0 50%, #14c38e 30%);
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+
+.page-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1; 
+}
+
+.page-title h1{
+    margin: 1rem 3rem;
+}
+
+.page-title p{
+    margin: 0 3rem;
+}
+
+.page-title button{
+    margin: 1rem 3rem;
+    width: 250px;
+    padding:10px ;
+    background-color: var(--secondary-color);
+    border: 0 ;
+    border-radius: 12px;
+}
+
+.page-title button:hover
+{
+    box-shadow: 5px 5px 15px 5px #fff;
+}
+.page-title button a{
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+} */
 
 
 
@@ -410,6 +458,7 @@ input[type="radio"] {
 
 
 /* ----------------------------- CompanyLoginPage ends here ---------------------- */
+/* ----------------------------- HomePage Job Div Starts here ---------------------- */
 
 .jobContainer{
     text-decoration: none;
@@ -442,15 +491,41 @@ input[type="radio"] {
     padding: 1.5rem; */
 }
 
-.job .location
+.job .location,.jobPageContainer .location
 {
     letter-spacing: 2px;
 }
 
-.job .package
+.job .package,.jobPageContainer .package
 {
     background-color: var(--package-background-color);
     padding: 5px 5px 5px 20px;
     border-radius: 8px;
     width: 17.5vw;
 }
+
+/* ----------------------------- HomePage Job Div Ends here -------------------------------- */
+
+/* ----------------------------- Job Page Starts here -------------------------------- */
+
+.jobPageContainer{
+    background-color: var(--fourth-color);
+    margin: 6rem 4rem;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.applyButton{
+    color: #fff;
+    border: 0;
+    font-family: inherit;
+    background-color: var(--secondary-color);
+    font-size:22px;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+.jobPageContainer .applyButton:hover
+{   
+    box-shadow: 5px 5px 15px 5px var(--package-background-color  );
+}
+

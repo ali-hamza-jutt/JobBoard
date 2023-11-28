@@ -1,0 +1,39 @@
+<%- include('partials/header.ejs') %>
+<div class="loginPage">
+    <!-- Education Form Container -->
+    <div id="educationContainer" class="formContainer active">
+        <form id="educationForm" class="form" action="/education" method="post">
+            <h1 id="educationHeading" class="heading">Education Details</h1>
+
+            <!-- Education Form Sections -->
+            <div class="formSection" id="degreeSection">
+                <label for="degreeField" id="degreeLabel" class="label">Degree</label>
+                <input required type="text" name="degreeField" id="degreeField" class="field">
+            </div>
+
+            <div class="formSection" id="institutionSection">
+                <label for="institutionField" id="institutionLabel" class="label">Institution</label>
+                <input required type="text" name="institutionField" id="institutionField" class="field">
+            </div>
+
+            <div class="formSection" id="startDateSection">
+                <label for="startDateField" id="startDateLabel" class="label">Start Date</label>
+                <input required type="date" name="startDateField" id="startDateField" class="field">
+            </div>
+
+            <div class="formSection" id="graduationDateSection">
+                <label for="graduationDateField" id="graduationDateLabel" class="label">Graduation Date</label>
+                <input required type="date" name="graduationDateField" id="graduationDateField" class="field">
+            </div>
+
+            <!-- Other Education Form Sections -->
+            <!-- Customize labels and fields as needed -->
+
+            <div class="statusMessage"></div>
+            <div id="educationButton" class="button">
+                <button class="btn" type="submit">Submit Education Details</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%- include('partials/footer.ejs') %>

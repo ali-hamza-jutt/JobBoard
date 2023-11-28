@@ -15,15 +15,19 @@ CREATE TABLE Company (
     Password VARCHAR(255), -- Assuming you'll store hashed passwords
     -- OtherAttributes data types and constraints
 );
-
+DROP table Job
 -- Create Job table
 CREATE TABLE Job (
     JobID INT PRIMARY KEY IDENTITY(1,1),
+	JobTitle  VARCHAR(255),
     CompanyID INT FOREIGN KEY REFERENCES Company(CompanyID),
     JobType VARCHAR(50),
     QualificationRequired VARCHAR(255),
     OfferedSalary MONEY,
     JobDescription TEXT,
+	JobResponsibilities TEXT,
+	JobRequirements TEXT,
+	JobBenefits TEXT,
     -- OtherAttributes data types and constraints
 );
 
@@ -88,6 +92,7 @@ CREATE TABLE ApplicantSkills (
 );
 
 -- Create JobApplication table
+drop table JobApplication
 CREATE TABLE JobApplication (
     JobApplicationID INT PRIMARY KEY IDENTITY(1,1),
     JobID INT FOREIGN KEY REFERENCES Job(JobID),
@@ -133,8 +138,8 @@ INSERT INTO Applicant (ApplicantEmail, FirstName, LastName, DOB, Gender, Passwor
 VALUES ('applicant@example.com', 'John', 'Doe', '1990-01-15', 'Male', 'hashed_password');
 
 -- Insert data into Job table
-INSERT INTO Job (CompanyID, JobType, QualificationRequired, OfferedSalary, JobDescription)
-VALUES (1, 'Web Development', 'Bachelor’s degree in Computer Science', 60000, 'Full-stack web development position');
+INSERT INTO Job (CompanyID, JobTitle,JobType, QualificationRequired, OfferedSalary, JobDescription,JobResponsibilities,JobRequirements,JobBenefits)
+VALUES (1, 'MERN STACK DEVELOPER','Internship', 'Bachelor’s degree in Computer Science or Enrolled in Degree', '40000', 'We are in search of a motivated and talented MERN Developer to join our innovative development team. As a MERN Developer, your role will involve actively participating in the creation and maintenance of web applications using the MongoDB, Express.js, React, and Node.js stack. We welcome applications from fresh candidates and individuals currently pursuing their education.','In this position, your responsibilities will include collaborating with a cross-functional team to define, design, and implement new features for web applications. You will be tasked with developing and maintaining efficient and scalable code using the MERN stack, and actively participating in the entire web development lifecycle, from conceptualization and design to testing and deployment. Working closely with UI/UX designers, you will contribute to creating visually appealing and user-friendly interfaces. Additionally, you ll troubleshoot, debug, and optimize web applications for optimal performance.','For this role, we are looking for fresh graduates or individuals currently pursuing a degree in Computer Science, Software Engineering, or a related field. If you have a basic understanding or coursework in web development and the MERN stack, along with eagerness to learn and adapt to new technologies, you are an ideal candidate. Strong problem-solving skills and attention to detail are crucial.','In return, we offer mentorship and training opportunities to support your career growth, along with a collaborative and innovative work environment. This is a fantastic opportunity for individuals passionate about web development to kickstart their careers as MERN Developers. We encourage you to apply and become a valuable part of our dynamic team shaping the future of web applications.');
 
 -- Insert data into ApplicantDetails table
 INSERT INTO ApplicantDetails (ApplicantID, City, Street, PostalCode, ContactNumber)
@@ -153,5 +158,10 @@ drop table JobApplication
 INSERT INTO JobApplication (JobID, ApplicantID, ApplicationDate)
 VALUES (1, 1, GETDATE());
 
-select * from Applicant
+select * from Job
 SELECT ApplicantEmail, Password FROM Applicant WHERE ApplicantEmail = 'alihamza16jutt@outlook.com'
+
+
+use JobBoard
+
+select * from company

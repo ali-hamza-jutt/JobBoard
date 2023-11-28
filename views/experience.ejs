@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs') %>
+<div>
+    <div class="loginPage">
+        <div id="experienceContainer" class="formContainer active">
+            <form id="experienceForm" class="form" action="/submitExperience" method="post">
+                <h1 id="experienceHeading" class="heading">Add Experience</h1>
+    
+                <div class="formSection" id="titleSection">
+                    <label for="titleField" class="label">Title</label>
+                    <input required type="text" name="titleField" id="titleField" class="field">
+                </div>
+    
+                <div class="formSection" id="companySection">
+                    <label for="companyField" class="label">Company</label>
+                    <input required type="text" name="companyField" id="companyField" class="field">
+                </div>
+    
+                <div class="formSection" id="startDateSection">
+                    <label for="startDate" class="label">Start Date</label>
+                    <input type="date" id="startDate" name="startDate" required placeholder="">
+                </div>
+    
+                <div class="formSection" id="endDateSection">
+                    <label for="endDate" class="label">End Date</label>
+                    <input type="date" id="endDate" name="endDate" required placeholder="">
+                </div>
+    
+                <div class="statusMessage"></div>
+                <div id="experienceButton" class="button">
+                    <button class="btn" type="submit">Add Experience</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs') %>
