@@ -9,6 +9,7 @@ import login from './Backend/applicantLogin.js';
 import companyLogin from './Backend/companyLogin.js';
 import companyRegister from './Backend/companyRegister.js';
 import path from 'path';
+import flash from 'express-flash';
 
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
@@ -23,6 +24,7 @@ const app = express();
 const isLoggedIn = (req, res, next) => {
   if (req.session.user) {
     res.locals.isLoggedIn = true; // Set a variable accessible in views
+    //console.log('ApplicantID:', req.session.user.ApplicantID);
   } else {
     res.locals.isLoggedIn = false;
   }
@@ -31,6 +33,7 @@ const isLoggedIn = (req, res, next) => {
 
 app.set('view engine', 'ejs');
 //app.set('views', viewsPath);
+app.use(flash());
 
 // Use the middleware in all routes
 router.use(isLoggedIn);
@@ -99,6 +102,54 @@ router.get('/job', async (req, res) => {
     res.status(500).send('Error fetching job data');
   }
 });
+// router.get('/apply',(req,res)=>{
+//   res.render(__dirname+'/views/apply.ejs')
+// })
+
+
+router.get('/apply', async (req, res) => {
+  try {
+    // Check if the user is logged in
+    if (!isLoggedIn) {
+      return res.redirect('/login'); // Redirect to login page if not logged in
+    }
+
+    // Create a connection pool
+    const pool = await sql.connect(connectionString);
+
+    // Create a request from the pool
+    const request = pool.request();
+
+    // Get the logged-in applicant's details
+    const applicantDetailsQuery = `SELECT * FROM Applicant join ApplicantDetails on Applicant.ApplicantID=ApplicantDetails.ApplicantID WHERE Applicant.ApplicantID = ${req.session.user.ApplicantID}`;
+    const educationDetailsQuery = `SELECT * FROM Education WHERE ApplicantID = ${req.session.user.ApplicantID}`;
+    const experienceDetailsQuery = `SELECT * FROM Experience WHERE ApplicantID = ${req.session.user.ApplicantID}`;
+    const skillDetailsQuery = `SELECT * FROM Skills WHERE ApplicantID = ${req.session.user.ApplicantID}`;
+    const applicantDetailsResult = await request.query(applicantDetailsQuery);
+    const educationDetailsResult = await request.query(educationDetailsQuery);
+    const experienceDetailsResult = await request.query(experienceDetailsQuery);
+    const skillDetailsResult = await request.query(skillDetailsQuery);
+    console.log(applicantDetailsResult.recordset)
+    console.log(req.session.user.ApplicantID)
+
+    // Render the apply.ejs template with applicant details
+    res.render(__dirname + '/views/apply.ejs', {
+      applicants: applicantDetailsResult.recordset,
+      education: educationDetailsResult.recordset,
+      experience: experienceDetailsResult.recordset,
+      skills: skillDetailsResult.recordset,
+      isLoggedIn: res.locals.isLoggedIn
+    });
+
+    // Close the connection pool
+    pool.close();
+  } catch (error) {
+    console.error('Error fetching applicant details:', error);
+    res.status(500).send('Error fetching applicant details');
+  }
+});
+
+
 
 
 router.get('/logout', (req, res) => {
@@ -113,10 +164,18 @@ router.get('/logout', (req, res) => {
   });
 });
 
-
-router.get('/edu',  (req, res) => {
+router.get('applicantDetaiks')
+router.get('/edu', async(req, res) => {
   res.render(__dirname + '/views/education.ejs');
 });
+
+router.get('/exp',  async(req, res) => {
+  res.render(__dirname + '/views/experience.ejs');
+});
+router.get('/skill',async(req,res)=>{
+  res.render(__dirname + '/views/skill.ejs');
+
+})
 
 
 router.post('/register', (req, res) => {

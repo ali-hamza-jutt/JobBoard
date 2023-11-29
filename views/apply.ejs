@@ -1,0 +1,137 @@
+<%- include('partials/header.ejs') %>
+
+<div class="applyPage">
+    <div class="personalDetails detail">
+        <h4>Applicant Details</h4>
+        <div class="tableAndOptions">
+
+            <table class="detailsTable">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Contact Number</th>
+                    <th>City</th>
+                    <th>Street</th>
+                    <th>Postal Code</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <% for (let i = 0; i < applicants.length; i++) { %>
+                    <tr>
+                        <td><%= applicants[i].FirstName %> <%= applicants[i].LastName %></td>
+                        <td><%= applicants[i].ApplicantEmail %></td>
+                        <td><%= applicants[i].DOB %></td>
+                        <td><%= applicants[i].Gender %></td>
+                        <td><%= applicants[i].ContactNumber %></td>
+                        <td><%= applicants[i].City %></td>
+                        <td><%= applicants[i].Street %></td>
+                        <td><%= applicants[i].PostalCode %></td>
+                        <td><a href="/editApplicant/<%= applicants[i].ApplicantID %>" class="editOption"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                        <td><a href="/deleteApplicant/<%= applicants[i].ApplicantID %>" class="editOption"><i class="fa-solid fa-trash"></i></a></td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+        <a href="/" class="enterDetailButton">Add Record</a>
+    </div>
+
+    <!-- Add other sections for education, experience, skills -->
+
+</div>
+
+
+<div class="educationDetails detail">
+    <h4>Education Records</h4>
+    <div class="tableAndOptions">
+        <table class="detailsTable">
+            <tr>
+                <th>Degree</th>
+                <th>Institution</th>
+                <th>Start Date</th>
+                <th>Graduation Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <% for (let i = 0; i < education.length; i++) { %>
+                <tr>
+                    <td><%= education[i].Degree %></td>
+                    <td><%= education[i].Institution %></td>
+                    <td><%= education[i].StartDate %></td>
+                    <td><%= education[i].GraduationDate %></td>
+                    <td><a href="/editEducation/<%= education[i].EducationID %>" class="editOption"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                    <td><a href="/deleteEducation/<%= education[i].EducationID %>" class="editOption"><i class="fa-solid fa-trash"></i></a></td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+    <a href="/" class="enterDetailButton">Add Education</a>
+</div>
+
+<div class="experienceDetails detail">
+    <h4>Experience Records</h4>
+    <div class="tableAndOptions">
+        <table class="detailsTable">
+            <tr>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <% for (let i = 0; i < experience.length; i++) { %>
+                <tr>
+                    <td><%= experience[i].Title %></td>
+                    <td><%= experience[i].Company %></td>
+                    <td><%= experience[i].StartDate %></td>
+                    <td><%= experience[i].EndDate %></td>
+                    <td><a href="/editExperience/<%= experience[i].ExperienceID %>" class="editOption"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                    <td><a href="/deleteExperience/<%= experience[i].ExperienceID %>" class="editOption"><i class="fa-solid fa-trash"></i></a></td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+    <a href="/" class="enterDetailButton">Add Experience</a>
+</div>
+<!-- 
+<div class="skillsDetails">
+    <h4>Skills</h4>
+    <div class="tableAndOptions">
+        <table class="detailsTable">
+            <tr>
+                <th>Skill Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <% for (let i = 0; i < skills.length; i++) { %>
+                <tr>
+                    <td><%= skills[i].SkillName %></td>
+                    <td><a href="/editSkill/<%= skills[i].SkillID %>" class="editOption"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                    <td><a href="/deleteSkill/<%= skills[i].SkillID %>" class="editOption"><i class="fa-solid fa-trash"></i></a></td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+    <a href="/" id="addSkillButton" class="enterDetailButton">Add Skill</a>
+</div> -->
+
+
+<div class="skillsDetails">
+    <h4>Skills</h4>
+    <div class="tableAndOptions">
+        <% for (let i = 0; i < skills.length; i++) { %>
+        <div class="skill"><%= skills[i].SkillName%><a href="" class="editOption"><i class="fa-regular fa-pen-to-square"></i></a>
+            <a href="" class="editOption"><i class="fa-solid fa-trash"></i></a></div>
+        <% } %>
+    </div>
+
+    
+</div>
+<a href="/" id="addSkillButton"class="enterDetailButton">Add Skill</a>
+</div>
+
+
+<%-  include('partials/footer2.ejs') %>
+

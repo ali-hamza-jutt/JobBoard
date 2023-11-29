@@ -2,10 +2,9 @@
 <div class="loginPage">
     <!-- Education Form Container -->
     <div id="educationContainer" class="formContainer active">
-        <form id="educationForm" class="form" action="/education" method="post">
+        <form id="educationForm" class="form" action="/edu" method="post">
             <h1 id="educationHeading" class="heading">Education Details</h1>
 
-            <!-- Education Form Sections -->
             <div class="formSection" id="degreeSection">
                 <label for="degreeField" id="degreeLabel" class="label">Degree</label>
                 <input required type="text" name="degreeField" id="degreeField" class="field">
@@ -26,14 +25,14 @@
                 <input required type="date" name="graduationDateField" id="graduationDateField" class="field">
             </div>
 
-            <!-- Other Education Form Sections -->
-            <!-- Customize labels and fields as needed -->
-
             <div class="statusMessage"></div>
+            
             <div id="educationButton" class="button">
                 <button class="btn" type="submit">Submit Education Details</button>
             </div>
+            <span id="loginSpan" class="span">Have more education records? <a class="switchLink" id="registerShift" href="#">Add</a></span>
+
         </form>
     </div>
 </div>
-<%- include('partials/footer.ejs') %>
+<%- include('partials/footer2.ejs') %>

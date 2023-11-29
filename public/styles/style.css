@@ -529,3 +529,79 @@ input[type="radio"] {
     box-shadow: 5px 5px 15px 5px var(--package-background-color  );
 }
 
+
+/* ----------------------------- Job Page Ends here -------------------------------- */
+
+
+/* ----------------------------- Apply Page Starts here -------------------------------- */
+
+
+
+
+
+
+
+
+
+/* ----------------------------- Apply Page Ends here -------------------------------- */
+
+.tableAndOptions{
+    display: flex;
+}
+
+/* Add this CSS to your stylesheet or in a <style> tag in your HTML */
+
+.detailsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.detailsTable th, .detailsTable td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.detailsTable th {
+    background-color:var(--package-background-color);
+}
+
+.detailsTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.detailsTable tr:hover {
+    background-color: #e5e5e5;
+}
+
+.editOption {
+    margin: 0 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Add additional styling as needed */
+
+
+.skill{
+    background-color: var(--fourth-color);
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.enterDetailButton{
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: black;
+    margin: 0.5rem 1.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+
+}
+
+.detail{
+    margin: 1rem 0.2rem;
+    /* border: 2px solid black; */
+}

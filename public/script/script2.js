@@ -1,23 +1,3 @@
-const registerButton=document.getElementById('registerShift');
-const loginButton=document.getElementById('loginShift');
-const loginContainer=document.getElementById('loginContainer');
-const registerContainer=document.getElementById('registerContainer');
-
-const registerForm=document.getElementById('registerForm');
-
-registerButton.addEventListener('click',()=>{
-    loginContainer.classList.remove('active');
-    registerContainer.classList.add('active');
-})
-
-loginButton.addEventListener('click',()=>{
-    registerForm.reset();
-    registerContainer.classList.remove('active');
-    loginContainer.classList.add('active');
-})
-
-
-
 const emailFields = document.querySelectorAll('.field');
 const emailLabels = document.querySelectorAll('.label');
 console.log(emailLabels)
@@ -53,24 +33,3 @@ emailFields.forEach((emailField, index) => {
 
 // Add a beforeunload event listener to reset fields when navigating to another page
 window.addEventListener('beforeunload', resetFields);
-
-
-
-const passwordInputs = document.querySelectorAll('.passwordInput');
-const showPasswordIcons = document.querySelectorAll('.showPassword');
-
-showPasswordIcons.forEach(icon => {
-    icon.addEventListener('click', () => {
-        // Toggle the type attribute of the password inputs based on the current type
-        passwordInputs.forEach(input => {
-            input.type = (input.type === 'password') ? 'text' : 'password';
-        });
-    });
-});
-
-
-
-
-
-
-
