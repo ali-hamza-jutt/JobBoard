@@ -1,0 +1,33 @@
+<!-- index.ejs -->
+
+<%- include('partials/homepageHeader.ejs') %>
+
+<div class="featured-jobs">
+  <h2 class="featured-heading">Jobs from Your Company</h2>
+
+  <% companyJobs.forEach(job => { %>
+    <a href="/job?id=<%= job.JobID %>" class="jobContainer">
+      <div class="job">
+        <h4 class="job-title">
+          <%= job.JobTitle %>
+        </h4>
+        <h5 class="company-name">
+          <%= job.CompanyName %>        
+        </h5>
+        <p class="location">
+          <i class="fas fa-map-marker-alt"><%= job.CompanyCity %></i>
+        </p>
+        <div class="package-and-details">
+          <p class="package">
+            PKR <%= job.OfferedSalary %> a month
+          </p>
+          <h4 class="jobtype">
+            <%= job.JobType %>
+          </h4>
+        </div>
+      </div>
+    </a>
+  <% }); %>
+</div>
+
+<%- include('partials/footer.ejs') %>

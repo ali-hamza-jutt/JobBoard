@@ -523,6 +523,7 @@ input[type="radio"] {
     font-size:22px;
     padding: 0.5rem 1rem;
     border-radius: 8px;
+    text-decoration: none;
 }
 .jobPageContainer .applyButton:hover
 {   
@@ -605,3 +606,28 @@ input[type="radio"] {
     margin: 1rem 0.2rem;
     /* border: 2px solid black; */
 }
+
+.submitDetail{
+    text-decoration: none;
+    background-color: var(--package-background-color);
+    color: black;
+    margin: 2rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+
+}
+
+
+
+/* messages */
+
+.error-message {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .success-message {
+    color: green;
+    font-weight: bold;
+  }
+  

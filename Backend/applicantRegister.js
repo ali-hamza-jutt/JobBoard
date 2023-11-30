@@ -13,6 +13,8 @@ passwordSchema
   .has().digits(1)         // Must have at least 1 digit
   .has().not().spaces();   // Should not have spaces
 
+// ... (your existing imports)
+
 const register = async (req, res) => {
   const {
     firstNameField,
@@ -36,19 +38,22 @@ const register = async (req, res) => {
 
     if (checkEmailResult.recordset.length > 0) {
       // Email is already registered
-      res.status(400).send('Email already registered');
+      const errorMessage = 'Email already registered';
+      res.render('userLogin.ejs', { errorMessage });
       return;
     }
 
     // Check if password and re-entered password match
     if (registerPasswordField !== rememberPasswordField) {
-      res.status(400).send('Passwords do not match');
+      const errorMessage = 'Passwords do not match';
+      res.render('userLogin.ejs', { errorMessage });
       return;
     }
 
     // Check if the password meets the criteria
     if (!passwordSchema.validate(registerPasswordField)) {
-      res.status(400).send('Password does not meet the criteria');
+      const errorMessage = 'Password does not meet the criteria';
+      res.render('userLogin.ejs', { errorMessage });
       return;
     }
 
@@ -78,8 +83,9 @@ const register = async (req, res) => {
       .input('gender', sql.VarChar, insertUserParams.gender)
       .query(insertUserQuery);
 
-    console.log('Data inserted successfully');
-    res.status(200).send('Data inserted successfully');
+    // Data inserted successfully
+    const successMessage = 'Data inserted successfully';
+    res.render('userLogin.ejs', { successMessage });
   } catch (error) {
     console.error('Error inserting data:', error);
     res.status(500).send('Error inserting data');

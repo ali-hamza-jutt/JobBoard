@@ -74,8 +74,7 @@ const companyRegister = async (req, res) => {
       .input('contactNumber', sql.VarChar, insertCompanyParams.contactNumber)
       .query(insertCompanyQuery);
 
-    console.log('Company data inserted successfully');
-    res.status(200).send('Company data inserted successfully');
+    res.redirect('/companyLogin');
   } catch (error) {
     console.error('Error inserting company data:', error);
     res.status(500).send('Error inserting company data');

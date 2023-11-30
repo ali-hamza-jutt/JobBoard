@@ -1,0 +1,22 @@
+<%- include('partials/header.ejs') %>
+<div class="loginPage">
+    <!-- Education Form Container -->
+    <div id="skillContainer" class="formContainer active">
+        <form id="skillForm" class="form" action="/skill" method="post">
+            <h1 id="skillHeading" class="heading">Add Skill</h1>
+
+            <div class="formSection" id="skillSection">
+                <label for="skillField" id="skillLabel" class="label">Skill</label>
+                <input required type="text" name="skillField" id="skillField" class="field">
+            </div>
+
+            <div class="statusMessage"></div>
+            
+            <div id="skillButton" class="button">
+                <button  class="btn" type="submit">Add Skill</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<%- include('partials/footer2.ejs') %>

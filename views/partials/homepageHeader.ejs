@@ -33,21 +33,31 @@
                 </form>
             </div>
             <div class="buttons">
-                <% if (isLoggedIn) { %>
+                <% if (isLoggedIn &&!isCompanyLoggedIn) { %>
                   <button class="logout">
                     <a href="/logout">Logout</a>
-                  </button>
-                <% } else { %>
+                  </button> 
+                <% } else if(!isLoggedIn &&!isCompanyLoggedIn) { %>
                   <button class="login">
                     <a href="/login">Login</a>
                   </button>
-                  <button class="postAJob">
-                    <a href="/companyLogin">Post A Job</a>
-                </button>
-
+                 
                 <% } %>
-              </div>
+                <% if (!isLoggedIn &&isCompanyLoggedIn) { %>
+                  <button class="logout">
+                    <a href="/logout">Logout</a>
+                  </button>
+                  <button class="postAJob">
+                    <a href="/postAJob">Post A Job</a>
+                </button>
+                <% } else if(!isLoggedIn &&!isCompanyLoggedIn) { %>
+                  <button class="login">
+                    <a href="/companyLogin">Company Login</a>
+                  </button>
+                 
+                <% } %>
 
+            </div>   
         </nav>
         <div class="page-title">
             <h1>Connecting Talent With Oppurtunity</h1>

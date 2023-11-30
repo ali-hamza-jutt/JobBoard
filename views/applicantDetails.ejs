@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+<div class="loginPage">
+    <!-- Education Form Container -->
+    <div id="appDdetailContainer" class="formContainer active">
+        <form id="appDetailForm" class="form" action="/appDetail" method="post">
+            <h1 id="appDetailHeading" class="heading">Add Details</h1>
+
+            <div class="formSection" id="contactNoSection">
+                <label for="contactNoField" id="contactNoLabel" class="label">Degree</label>
+                <input required type="text" name="contactNoField" id="contactNoField" class="field">
+            </div>
+            <div class="statusMessage"></div>
+            
+            <div id="appDetailButton" class="button">
+                <button class="btn" type="submit">Submit Education Details</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<%- include('partials/footer2.ejs') %>

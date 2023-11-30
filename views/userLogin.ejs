@@ -25,6 +25,13 @@
                     <input checked type="checkbox" id="remember-me" name="remember-me">
                     <label for="remember-me">Remember Me</label>
                 </div> -->
+                <!-- <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+                    <p class="error-message"><%= errorMessage %></p>
+                <% } else if (typeof successMessage !== 'undefined' && successMessage) { %>
+                    <p class="success-message"><%= successMessage %></p>
+                <% } %> -->
+
+                
     
                 <div id="loginButton" class="button">
                     <button class="btn" type="submit">Login</button>
@@ -101,7 +108,12 @@
                         <label for="other" class="genderLabel" >Other</label>
                     </div>
                 </div>
-                <div class="statusMessage"></div>
+                <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+                    <p class="error-message"><%= errorMessage %></p>
+                <% } else if (typeof successMessage !== 'undefined' && successMessage) { %>
+                    <p class="success-message"><%= successMessage %></p>
+                <% } %>
+
                 <div id="registerButton" class="button">
                     <button class="btn" type="submit">Register</button>
                 </div>

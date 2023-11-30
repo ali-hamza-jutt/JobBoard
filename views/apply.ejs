@@ -1,4 +1,10 @@
 <%- include('partials/header.ejs') %>
+ <!-- Assuming you have a function to format the date -->
+ <% function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+    } %>
+    <!-- <h3>Job Title: <%= job.JobTitle %></h3> -->
 
 <div class="applyPage">
     <div class="personalDetails detail">
@@ -22,7 +28,7 @@
                     <tr>
                         <td><%= applicants[i].FirstName %> <%= applicants[i].LastName %></td>
                         <td><%= applicants[i].ApplicantEmail %></td>
-                        <td><%= applicants[i].DOB %></td>
+                        <td><%= formatDate(applicants[i].DOB) %></td>
                         <td><%= applicants[i].Gender %></td>
                         <td><%= applicants[i].ContactNumber %></td>
                         <td><%= applicants[i].City %></td>
@@ -34,7 +40,7 @@
                 <% } %>
             </table>
         </div>
-        <a href="/" class="enterDetailButton">Add Record</a>
+        <a href="#" class="enterDetailButton">Add Record</a>
     </div>
 
     <!-- Add other sections for education, experience, skills -->
@@ -58,15 +64,15 @@
                 <tr>
                     <td><%= education[i].Degree %></td>
                     <td><%= education[i].Institution %></td>
-                    <td><%= education[i].StartDate %></td>
-                    <td><%= education[i].GraduationDate %></td>
+                    <td><%= formatDate(education[i].StartDate) %></td>
+                    <td><%= formatDate(education[i].GraduationDate) %></td>
                     <td><a href="/editEducation/<%= education[i].EducationID %>" class="editOption"><i class="fa-regular fa-pen-to-square"></i></a></td>
                     <td><a href="/deleteEducation/<%= education[i].EducationID %>" class="editOption"><i class="fa-solid fa-trash"></i></a></td>
                 </tr>
             <% } %>
         </table>
     </div>
-    <a href="/" class="enterDetailButton">Add Education</a>
+    <a href="/edu" class="enterDetailButton">Add Education</a>
 </div>
 
 <div class="experienceDetails detail">
@@ -85,15 +91,16 @@
                 <tr>
                     <td><%= experience[i].Title %></td>
                     <td><%= experience[i].Company %></td>
-                    <td><%= experience[i].StartDate %></td>
-                    <td><%= experience[i].EndDate %></td>
+                    <!-- Use the formatDate function to display formatted dates -->
+                    <td><%= formatDate(experience[i].StartDate) %></td>
+                    <td><%= formatDate(experience[i].EndDate) %></td>
                     <td><a href="/editExperience/<%= experience[i].ExperienceID %>" class="editOption"><i class="fa-regular fa-pen-to-square"></i></a></td>
                     <td><a href="/deleteExperience/<%= experience[i].ExperienceID %>" class="editOption"><i class="fa-solid fa-trash"></i></a></td>
                 </tr>
             <% } %>
         </table>
     </div>
-    <a href="/" class="enterDetailButton">Add Experience</a>
+    <a href="/exp" class="enterDetailButton">Add Experience</a>
 </div>
 <!-- 
 <div class="skillsDetails">
@@ -123,14 +130,18 @@
     <div class="tableAndOptions">
         <% for (let i = 0; i < skills.length; i++) { %>
         <div class="skill"><%= skills[i].SkillName%><a href="" class="editOption"><i class="fa-regular fa-pen-to-square"></i></a>
-            <a href="" class="editOption"><i class="fa-solid fa-trash"></i></a></div>
+            <a  class="editOption"><i class="fa-solid fa-trash"></i></a></div>
         <% } %>
     </div>
 
     
 </div>
-<a href="/" id="addSkillButton"class="enterDetailButton">Add Skill</a>
+<a href="/skill" id="addSkillButton"class="enterDetailButton">Add Skill</a>
 </div>
+
+<a href="/submitDetail?id=<%= job.JobID %>" class="submitDetail">Submit</a>
+
+
 
 
 <%-  include('partials/footer2.ejs') %>
