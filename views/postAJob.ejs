@@ -1,0 +1,61 @@
+<%- include('partials/header.ejs') %>
+<div>
+    <div class="loginPage">
+        <div id="jobContainer" class="formContainer active">
+            <form id="jobForm" class="form" action="/postAJob" method="post">
+                <h1 id="jobHeading" class="heading">Add Job</h1>
+    
+                <div class="formSection" id="titleSection">
+                    <label for="jobTitleField" class="label">Job Title</label>
+                    <input required type="text" name="jobTitleField" id="jobTitleField" class="field">
+                </div>
+ 
+                <div class="formSection" id="jobTypeSection">
+                    <label for="jobTypeField" class="label">Job Type</label>
+                    <input required type="text" name="jobTypeField" id="jobTypeField" class="field">
+                </div>
+                
+                <div class="formSection" id="jobCategorySection">
+                    <label for="jobCategoryField" class="label">Job Category</label>
+                    <input required type="text" name="jobCategoryField" id="jobCategoryField" class="field">
+                </div>
+    
+                <div class="formSection" id="qualificationSection">
+                    <label for="qualificationField" class="label">Qualification Required</label>
+                    <input required type="text" name="qualificationField" id="qualificationField" class="field">
+                </div>
+    
+                <div class="formSection" id="salarySection">
+                    <label for="salaryField" class="label">Offered Salary</label>
+                    <input required type="text" name="salaryField" id="salaryField" class="field">
+                </div>
+    
+                <div class="formSection" id="descriptionSection">
+                    <label for="descriptionField" class="label">Job Description</label>
+                    <textarea required name="descriptionField" id="descriptionField" class="field"></textarea>
+                </div>
+    
+                <div class="formSection" id="responsibilitiesSection">
+                    <label for="responsibilitiesField" class="label">Job Responsibilities</label>
+                    <textarea required name="responsibilitiesField" id="responsibilitiesField" class="field"></textarea>
+                </div>
+    
+                <div class="formSection" id="requirementsSection">
+                    <label for="requirementsField" class="label">Job Requirements</label>
+                    <textarea required name="requirementsField" id="requirementsField" class="field"></textarea>
+                </div>
+    
+                <div class="formSection" id="benefitsSection">
+                    <label for="benefitsField" class="label">Job Benefits</label>
+                    <textarea required name="benefitsField" id="benefitsField" class="field"></textarea>
+                </div>
+    
+                <div class="statusMessage"></div>
+                <div id="jobButton" class="button">
+                    <button class="btn" type="submit">Add Job</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer2.ejs') %>

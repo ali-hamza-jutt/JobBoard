@@ -58,12 +58,12 @@
             } %>
         </ul>
     </div>
-    
-    <div class="jobPageContainer">
-        <a href="/apply?id=<%= job.JobID %>" class="applyButton">Apply</a>
-
-    </div>
-    
+    <% if (isLoggedIn && !isCompanyLoggedIn) { %>
+        <a href="/apply?id=<%= job.JobID %>" class="applyButton">Apply</a> 
+    <% } else if (!isLoggedIn && isCompanyLoggedIn) { %>
+        <a href="/applications?id=<%= job.JobID %>" class="applyButton">Applications</a>
+        <a href="/deleteJob?id=<%= job.JobID %>" class="applyButton">Delete</a>
+    <% } %>
 </div>
 
 <%- include('partials/footer.ejs') %>

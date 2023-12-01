@@ -192,9 +192,9 @@ router.get('/edu', async(req, res) => {
 router.get('/exp',  async(req, res) => {
   res.render(__dirname + '/views/experience.ejs');
 });
-router.get('/skill',async(req,res)=>{
-  res.render(__dirname + '/views/skill.ejs');
 
+router.get('/postAjob',async(req,res)=>{
+  res.render(__dirname + '/views/postAJob.ejs');
 })
 
 
@@ -375,6 +375,141 @@ router.get('/submitDetail', async (req, res) => {
   }
 });
 
+
+
+
+router.post('/postAJob', async (req, res) => {
+  try {
+    const {
+      jobTitleField,
+      jobTypeField,
+      jobCategoryField,
+      qualificationField,
+      salaryField,
+      descriptionField,
+      responsibilitiesField,
+      requirementsField,
+      benefitsField
+    } = req.body;
+
+    // Get the current company ID from the session
+    const companyID = req.session.company.CompanyID;
+
+    // Create a connection pool
+    const pool = await sql.connect(connectionString);
+
+    // Create a request from the pool
+    const request = pool.request();
+
+    // SQL query to insert job details into the Job table
+    const insertQuery = `
+      INSERT INTO Job (JobTitle, CompanyID, JobType, JobCategory, QualificationRequired, OfferedSalary, JobDescription, JobResponsibilities, JobRequirements, JobBenefits)
+      VALUES (@jobTitle, @companyID, @jobType, @jobCategory, @qualification, @salary, @description, @responsibilities, @requirements, @benefits)
+    `;
+
+    // Execute the query
+    const result = await request
+      .input('jobTitle', sql.VarChar(255), jobTitleField)
+      .input('companyID', sql.Int, companyID)
+      .input('jobType', sql.VarChar(50), jobTypeField)
+      .input('jobCategory', sql.VarChar(50), jobCategoryField)
+      .input('qualification', sql.VarChar(255), qualificationField)
+      .input('salary', sql.Money, parseFloat(salaryField))
+      .input('description', sql.Text, descriptionField)
+      .input('responsibilities', sql.Text, responsibilitiesField)
+      .input('requirements', sql.Text, requirementsField)
+      .input('benefits', sql.Text, benefitsField)
+      .query(insertQuery);
+
+    // Check if the data was successfully inserted
+    if (result.rowsAffected.length > 0) {
+      // Redirect to a success page or perform any other necessary actions
+      res.redirect('/companyJobs');
+    } else {
+      // Handle the case where the data insertion failed
+      res.status(500).send('Error adding job');
+    }
+
+    // Close the connection pool
+    pool.close();
+  } catch (error) {
+    console.error('Error adding job:', error);
+    res.status(500).send('Error adding job');
+  }
+});
+
+// router.get('/applications',async(req,res)=>{
+//   res.render(__dirname+'/views/applications.ejs',{
+//     isLoggedIn: res.locals.isLoggedIn,
+//     isCompanyLoggedIn: res.locals.isCompanyLoggedIn
+//   })
+// })
+router.get('/applications', async (req, res) => {
+  const jobId = req.query.id;
+  //console.log(jobId)
+
+  try {
+    const pool = await sql.connect(connectionString);
+    const request = pool.request();
+    const applicantDetailQuery = `
+      
+	  SELECT DISTINCT Applicant.ApplicantID, Applicant.FirstName, Applicant.LastName, Applicant.ApplicantEmail, Applicant.Gender
+    FROM Applicant
+    JOIN JobApplication ON Applicant.ApplicantID = JobApplication.ApplicantID
+    WHERE JobApplication.JobID = ${jobId}
+    `;
+    
+    const applicantDetailData = await request.query(applicantDetailQuery);
+    //console.log(applicantDetailData.recordset)
+
+    res.render(__dirname+'/views/applications.ejs', {
+      applicants: applicantDetailData.recordset,
+      isLoggedIn: res.locals.isLoggedIn,
+      isCompanyLoggedIn: res.locals.isCompanyLoggedIn
+    });
+  } catch (error) {
+    console.error('Error fetching applicants:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.get('/applicantData', async (req, res) => {
+  try {
+    // Check if the user is logged in
+    const applicantID = req.query.id;
+    console.log(applicantID)
+
+    // Create a connection pool
+    const pool = await sql.connect(connectionString);
+    const request = pool.request();
+
+    // Get the logged-in applicant's details
+    const applicantDetailsQuery = `SELECT * FROM Applicant join ApplicantDetails on Applicant.ApplicantID=ApplicantDetails.ApplicantID WHERE Applicant.ApplicantID = ${applicantID}`;
+    const educationDetailsQuery = `SELECT * FROM Education WHERE ApplicantID = ${applicantID}`;
+    const experienceDetailsQuery = `SELECT * FROM Experience WHERE ApplicantID = ${applicantID}`;
+    const skillDetailsQuery = `SELECT * FROM Skills WHERE ApplicantID = ${applicantID}`;
+    const applicantDetailsResult = await request.query(applicantDetailsQuery);
+    const educationDetailsResult = await request.query(educationDetailsQuery);
+    const experienceDetailsResult = await request.query(experienceDetailsQuery);
+    const skillDetailsResult = await request.query(skillDetailsQuery);
+
+    // Render the apply.ejs template with applicant details
+    res.render(__dirname + '/views/applicantData.ejs', {
+      applicants: applicantDetailsResult.recordset,
+      education: educationDetailsResult.recordset,
+      experience: experienceDetailsResult.recordset,
+      skills: skillDetailsResult.recordset,
+      isLoggedIn:res.locals.isLoggedIn,
+      isCompanyLoggedIn:res.locals.isCompanyLoggedIn
+    });
+
+    // Close the connection pool
+    pool.close();
+  } catch (error) {
+    console.error('Error fetching applicant details:', error);
+    res.status(500).send('Error fetching applicant details');
+  }
+});
 
 
 export default {

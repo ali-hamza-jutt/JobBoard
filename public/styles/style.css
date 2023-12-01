@@ -536,16 +536,6 @@ input[type="radio"] {
 
 /* ----------------------------- Apply Page Starts here -------------------------------- */
 
-
-
-
-
-
-
-
-
-/* ----------------------------- Apply Page Ends here -------------------------------- */
-
 .tableAndOptions{
     display: flex;
 }
@@ -618,7 +608,7 @@ input[type="radio"] {
 }
 
 
-
+/* ----------------------------- Apply Page Ends here -------------------------------- */
 /* messages */
 
 .error-message {
@@ -631,3 +621,20 @@ input[type="radio"] {
     font-weight: bold;
   }
   
+/* ----------------------------- Applications Page Starts here ----------------------------- */
+.applicantLink{
+    text-decoration: none;
+    color: #000;
+}
+.application{
+    background-color: var(--fourth-color);
+    margin: 1rem 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+.attribute{
+    font-size: 18px;
+}
+.attributeName{
+    font-weight: bold;
+}

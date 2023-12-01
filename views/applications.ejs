@@ -1,0 +1,13 @@
+<%- include('partials/header.ejs') %>
+<div class="applicationsContainer">
+  <% applicants.forEach(applicant => { %>
+    <a href="/applicantData?id=<%= applicant.ApplicantID %>" class="applicantLink">
+      <div class="application">
+        <div class="applicantName attribute"><span class="attributeName">Name: </span><%= applicant.FirstName %> <%= applicant.LastName %></div>
+        <div class="applicantEmail attribute"><span class="attributeName">Email: </span><%= applicant.ApplicantEmail %></div>
+        <div class="applicantGender attribute"><span class="attributeName">Gender: </span><%= applicant.Gender %></div>
+      </div>
+    </a>
+  <% }); %>
+</div>
+<%- include('partials/footer.ejs') %>
